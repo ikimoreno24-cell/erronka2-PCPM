@@ -59,14 +59,7 @@ a:hover{
     max-height: 15px;
     margin-left: 80vh;
 }  
-main img{
-    width: 25%;
-    height: 10%;
-    border-radius: 13px;
-} 
-main{
-    color: white;
-}
+
 footer{
     margin-bottom: -35px;
     margin-left: -10px;
