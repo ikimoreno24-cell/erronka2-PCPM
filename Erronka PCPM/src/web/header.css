@@ -31,7 +31,10 @@ header {
     display: flex;
     margin-left: 10%;
 }
-
+a:hover{
+    background-color: rgb(29, 67, 97);
+    
+}
 .menua a{
     font-size: 2vh;
     color: white;
@@ -54,4 +57,27 @@ header {
     max-width: 15px;
     max-height: 15px;
     margin-left: 80vh;
-}   
+}  
+main img{
+    width: 25%;
+    height: 10%;
+} 
+main{
+    color: white;
+}
+footer{
+    margin-bottom: -35px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+.footernav{
+    background-color: black;
+}
+a:hover{
+    background-color: rgb(29, 67, 97);
+}
+.legala a{
+    margin-left: 3vh;
+    color: white;
+    text-decoration: solid;
+}
