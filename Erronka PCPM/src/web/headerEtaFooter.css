@@ -1,0 +1,21 @@
+.menua{
+    display: flex;
+}
+.menua a{
+    margin-left: 10%;
+}
+body{
+    font-family: 'Times New Roman', Times, serif;
+    background: #190e4f;
+    background: linear-gradient(90deg, rgba(25, 14, 79, 1) 5%, rgba(49, 83, 145, 1) 39%, rgba(15, 21, 79, 1) 91%);
+}
+nav{
+    margin-left: -0.6%;
+    margin-right: -0.6%;
+    margin-top: -1.4%;
+    color: white;
+}
+.logoa img{
+    width: 3%;
+    height: 3%;
+}
