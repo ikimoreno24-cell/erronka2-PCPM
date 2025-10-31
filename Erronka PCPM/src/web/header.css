@@ -1,86 +1,154 @@
-body{
-    font-family: 'Times New Roman', Times, serif;
-   background-color: rgb(10, 10, 110);
-  
-   
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
-nav{
-    background-color: rgb(26, 25, 25);
+
+body {
+    font-family: 'Times New Roman', Times, serif;
+    background-color: rgb(204, 204, 204);
+    color: white;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    background: linear-gradient(#777, #555);
+    padding: 20px 0;
+    width: 100%;
+}
+
+.header-kontenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+}
+
+.logo {
     display: flex;
     align-items: center;
-    min-height: 25vh;
+    gap: 15px;
 }
-header {
-  margin-top: -35px;
-  margin-left: -10px;
-  margin-right: -10px;
-}
-.logoa{
-    margin-left: 10px;
-    font-size: 20px;
-    font-family: 'Times New Roman', Times, serif;
+
+.logo h1 {
+    font-size: 2rem;
     color: white;
 }
-.logoa img{
-    width: 40px;
-    height: 50px;
+
+.logo img {
+    width: 50px;
+    height: 60px;
 }
-.logoa h1{
-    font-size: 5vh;
-}
-.menua{
-    margin-left: 10%;
+
+.nabegazioa {
     display: flex;
-    margin-left: 10%;
+    gap: 30px;
 }
-a:hover{
-    background-color: rgb(29, 67, 97);
-    
+.nabegazioa img{
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3 ease;
 }
-.menua a{
-    font-size: 2vh;
+.nabegazioa img:hover{
+     transform: scale(1.2);
+}
+
+.nabegazioa a {
     color: white;
-    font-family: 'Times New Roman', Times, serif;
-    margin-right: 40%;
-    text-decoration: underline;
+    text-decoration: none;
+    padding: 10px 20px;
+    border-radius: 5px;
 }
-.material-symbols-outlined{
-     font-variation-settings:
-        'FILL' 0,
-        'wght' 400,
-        'GRAD' 0,
-        'opsz' 24
+
+.nabegazioa a:hover {
+    background-color: rgb(29, 67, 97);
 }
-.hamburguesa-menua{
+
+.menu-hamburguesa {
+    display: block;
+    background: none;
     border: none;
-    background-color: rgb(26, 25, 25);
+    color: rgb(0, 0, 0);
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 5px;
+}
+
+.footer {
+    background: linear-gradient(#777, #555);
+    padding: 30px 20px;
+    width: 100%;
+    margin-top: auto;
+}
+
+.footer-kontenido {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.legal-loturak {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.legal-loturak a {
     color: white;
-    float: right;
-    max-width: 15px;
-    max-height: 15px;
-    margin-left: 80vh;
-}  
-main img{
-    width: 25%;
-    height: 10%;
-    border-radius: 13px;
-} 
-main{
-    color: white;
+    text-decoration: none;
+    padding: 5px 10px;
 }
-footer{
-    margin-bottom: -35px;
-    margin-left: -10px;
-    margin-right: -10px;
-}
-.footernav{
-    background-color: black;
-}
-a:hover{
+
+.legal-loturak a:hover {
     background-color: rgb(29, 67, 97);
 }
-.legala a{
-    margin-left: 3vh;
+
+.sare-sozialak {
+    display: flex;
+    gap: 15px;
+}
+
+.sare-sozialak img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.sare-sozialak img:hover {
+    transform: scale(1.2);
+}.info-laukia {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+   background: linear-gradient(white);
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);   
+    z-index: 1000;
+    width: 300px;
+}
+.maps-links {
+    display: inline-block;
+    background-color: #4285F4; 
     color: white;
-    text-decoration: solid;
+    text-decoration: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    margin: 10px 0;
+    transition: background-color 0.3s;
+}
+
+.maps-links:hover {
+    background-color: #3367D6;
 }
