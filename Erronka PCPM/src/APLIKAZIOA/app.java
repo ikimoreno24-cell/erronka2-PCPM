@@ -3,11 +3,11 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class app {
+public class App {  
     private static HashMap<String, ArrayList<Integer>> egutegia = new HashMap<>();
     
     static {
-       
+      
         ArrayList<Integer> astelehena = new ArrayList<>();
         astelehena.add(4);
         astelehena.add(2); 
@@ -46,7 +46,13 @@ public class app {
         egutegia.put("Igandea", igandea);
     }
     
+
+    public static String agurra() {
+        return "Kaixo";
+    }
+    
     public static void main(String[] args) {
+  
         hasierakoMenua menu = new hasierakoMenua();
         zinea cine = new zinea();
         Scanner sc = new Scanner(System.in);
@@ -78,6 +84,7 @@ public class app {
         sc.close();
     }
     
+  
     private static void prozesatuAstekoEgunak(zinea cine, Scanner sc) {
         ArrayList<String> astekoegunak = new ArrayList<>();
         astekoegunak.add("Astelehena");

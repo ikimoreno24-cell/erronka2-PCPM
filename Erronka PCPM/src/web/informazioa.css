@@ -1,0 +1,17 @@
+img {
+    width: 300px;
+    height: 370px;
+    border-radius: 14px;
+    margin-top: 45px;
+}
+
+ul {
+    list-style: none;
+}
+
+ul>li{
+    color: white;
+}
+q{
+    color: yellow;
+}

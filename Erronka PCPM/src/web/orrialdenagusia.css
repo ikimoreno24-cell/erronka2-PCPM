@@ -1,0 +1,29 @@
+
+.main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.filmak {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 40px;
+}
+
+.filma {
+    text-align: center;
+}
+
+.filma img {
+    width: 100%;
+    height: 550px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.filma h2 {
+    font-size: 1.3rem;
+    margin-top: 15px;
+}
