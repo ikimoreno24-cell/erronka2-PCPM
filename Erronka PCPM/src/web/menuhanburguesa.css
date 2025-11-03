@@ -1,0 +1,43 @@
+.menu-laterala{
+    position: fixed;
+    top: 0;
+    right: -250px;
+    width: 250px;
+       height: 100%;
+       background-color: black;
+       color: white;
+       display: flex;
+       flex-direction: column;
+       align-items: start;
+       gap: 15px;
+       transition:right  0.3 ease;
+       z-index: 1000;
+}
+.menu-laterala a{
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+
+}
+.menu-laterala a:hover{
+    text-decoration: underline;
+}
+.menu-laterala.ikusi{
+    right: 0;
+}
+#menu-hamburguesa{
+    background: none;
+    border: none;
+    font-size: 28px;
+    cursor: pointer;
+    color: white;
+}
+.menua-itxi{
+    background: none;
+    border: none;
+    font-size: 28px;
+    color: white;
+    cursor: pointer;
+align-self: flex-end;
+margin-bottom: 20px;
+}
