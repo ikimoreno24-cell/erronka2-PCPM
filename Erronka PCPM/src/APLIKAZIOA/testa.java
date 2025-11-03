@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 public class testa{
     @Test
     public void testagurra(){
-        String agurra = App.agurra();
+        String agurra = app.agurra();
         assertEquals("Kaixo", agurra);
     }
 }
