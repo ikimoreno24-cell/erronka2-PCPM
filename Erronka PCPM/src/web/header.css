@@ -73,7 +73,6 @@ body {
     display: block;
     background: none;
     border: none;
-<<<<<<< HEAD
     color: rgb(0, 0, 0);
     font-size: 2rem;
     cursor: pointer;
@@ -110,25 +109,6 @@ body {
 }
 
 .legal-loturak a:hover {
-=======
-    background-color: rgb(26, 25, 25);
-    color: white;
-    float: right;
-    max-width: 15px;
-    max-height: 15px;
-    margin-left: 80vh;
-}  
-
-footer{
-    margin-bottom: -35px;
-    margin-left: -10px;
-    margin-right: -10px;
-}
-.footernav{
-    background-color: black;
-}
-a:hover{
->>>>>>> feature/cssAldaketak
     background-color: rgb(29, 67, 97);
 }
 
