@@ -1,0 +1,84 @@
+
+
+main {
+  max-width: 1000px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: #ffffff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+main h1 {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  color: #222;
+}
+
+h2 {
+  margin-top: 2rem;
+  color: #333;
+}
+
+
+form#sarrerak {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+form#sarrerak label {
+  font-weight: 500;
+}
+
+form#sarrerak select,
+form#sarrerak input[type="number"] {
+  padding: 0.6rem;
+  border-radius: 0.5rem;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  max-width: 250px;
+}
+
+
+button {
+  background-color: #ffcc00;
+  border: none;
+  border-radius: 0.5rem;
+  padding: 0.7rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s;
+}
+
+button:hover {
+  background-color: #ffb700;
+  transform: translateY(-2px);
+}
+
+
+#saskia {
+  margin-top: 1rem;
+  background-color: #f8f8f8;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  min-height: 50px;
+}
+
+#totala {
+  margin-top: 1rem;
+  text-align: right;
+  font-weight: bold;
+  font-size: 1.2rem;
+  color: #333;
+}
+form#sarrerak h3 {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+}
+
+
