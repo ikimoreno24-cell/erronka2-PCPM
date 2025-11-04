@@ -1,0 +1,34 @@
+main img{
+    width: 45vh;
+    height: 70vh;
+    margin-top: 5%;
+    margin-left: 2%;
+}
+
+li{
+    display: flex;
+    align-items: flex-start;
+    gap: 3vh;
+    margin-bottom: 2%;
+}
+li details{
+    margin-top: 10vh;
+    border-collapse: collapse;
+    border: solid rgb(87, 85, 85);
+    margin-right: 3%;
+}
+p{
+    margin-left: 1.5%;
+}
+#sarrerak{
+    margin-top:1%;
+}
+summary{
+    margin-bottom: 1%;
+}
+iframe{
+    margin-top: 2%;
+    margin-bottom: 2%;
+    margin-left: 24%;
+    align-items: center;
+}
