@@ -47,99 +47,92 @@
     <main>
 
         <h1>SASKIA</h1>
+
         <form id="sarrerak">
-            <h3>Sarrera aukeratu</h3><label>Filma:</label><select id="filma">
+            <h3>Sarrera aukeratu</h3>
+
+            <label for="filma">Filma:</label>
+            <select id="filma">
                 <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">EXPEDIENTE WARREN: EL ULTIMO RITO - 8€</option>
+                <option value="6.00">EXPEDIENTE WARREN: EL ULTIMO RITO - 6€</option>
                 <option value="8.00">UNA BATALLA TRAS OTRA - 8€</option>
-                <option value="8.00">EL CAUTIVO - 8€</option>
+                <option value="6.00">EL CAUTIVO - 6€</option>
                 <option value="8.00">DEMON SLAYER: EL CASTILLO INFINITO - 8€</option>
                 <option value="8.00">SKETCH CUIDADO CON LO QUE DIBUJAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
-                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">AVATAR: EL SENTIDO DEL AGUA - 8€</option>
+                <option value="6.00">STRANGERS - 6€</option>
+                <option value="8.00">AFTERBURN: ZONA CERO - 8€</option>
+                <option value="8.00">COMO ENTRENAR A TU DRAGÓN: LIVE ACTION - 8€</option>
+                <option value="6.00">LOS 4 FANTÁSTICOS - 6€</option>
+                <option value="8.00">STAR WARS: THE FORCE AWAKENS - 8€</option>
+                <option value="8.00">DARK PHOENIX - 8€</option>
+                <option value="6.00">LOGAN - 6€</option>
+                <option value="7.00">CELDA 211 - 7€</option>
+                <option value="7.00">FRACTURED - 7€</option>
+                <option value="8.00">PULP FICTION - 8€</option>
+                <option value="7.00">MASPALOMAS - 7€</option>
             </select>
 
-<br>
-<br>
-<br>
-            <label>Sarrera mota aukeratu:</label>
+            <h3>Sarrera mota aukeratu</h3>
             <select id="mota">
-            <option value="Normala">Normala</option>
-            <option value="10 urte baino gutxiago">10 urte baino gutxiago (-2€)</option>
-            <option value="Gazte txartela">Gazte txartela(-3€)</option>
-            <option value="Deluxe sarrera">Deluxe sarrera</option>
-        </select>
-<br>
-<br>
-<br>
-        <label>Zenbat sarrera? (Gehienez 5 sarrera)</label>
-        <input type="number" id="kantitatea"value="1" min="1" max="5" style="width: 60px;">
-<br>
-<br>
-<br>    
+                <option value="Normala">Normala</option>
+                <option value="10 urte baino gutxiago">10 urte baino gutxiago (-2€)</option>
+                <option value="Gazte txartela">Gazte txartela (-3€)</option>
+                <option value="Deluxe sarrera">Deluxe sarrera</option>
+            </select>
 
-<button type="button" onclick="sarreraGehitu()">Saskiara gehitu</button>
+            <h3>Zenbat sarrera? (gehienez 5)</h3>
+            <input type="number" id="kantitatea" value="1" min="1" max="5" style="width: 80px;">
+
+            <button type="button" onclick="sarreraGehitu()">Saskiara gehitu</button>
         </form>
+
 
         <hr>
         <h2>Sarrerak saskian:</h2>
-
         <br>
         <br>
         <div id="saskia"></div>
         <div id="totala">Totala = 0.00€</div>
         <br>
         <br>
-        <br>
-
         <button type="button" onclick="vaciarSaskia()">Saskitik kendu</button>
 
-
         <script>
-    let totala = 0;
+            let totala = 0;
 
-    function sarreraGehitu(){
-      
-        let filmakSelect = document.getElementById("filma");  
-        let sarreraMotaSelect = document.getElementById("mota");
-        let kantitateaInput = document.getElementById("kantitatea");
+            function sarreraGehitu() {
 
-        let hasierakoPrezioa = parseFloat(filmakSelect.value);
-        let mota = sarreraMotaSelect.value;
-        let kantitatea = parseInt(kantitateaInput.value);
+                let filmakSelect = document.getElementById("filma");
+                let sarreraMotaSelect = document.getElementById("mota");
+                let kantitateaInput = document.getElementById("kantitatea");
 
-        let amaierakoPrezioa = hasierakoPrezioa;
-        if(mota == "10 urte baino gutxiago") amaierakoPrezioa -= 2;
-        if(mota == "Gazte txartela") amaierakoPrezioa -= 3;
-        if(mota == "Deluxe sarrera") amaierakoPrezioa += 2;
+                let hasierakoPrezioa = parseFloat(filmakSelect.value);
+                let mota = sarreraMotaSelect.value;
+                let kantitatea = parseInt(kantitateaInput.value);
 
-        let guztira = amaierakoPrezioa * kantitatea;
+                let amaierakoPrezioa = hasierakoPrezioa;
+                if (mota == "10 urte baino gutxiago") amaierakoPrezioa -= 2;
+                if (mota == "Gazte txartela") amaierakoPrezioa -= 3;
+                if (mota == "Deluxe sarrera") amaierakoPrezioa += 2;
 
-        totala += guztira;
-        eguneratuTotala();
+                let guztira = amaierakoPrezioa * kantitatea;
 
-        kantitateaInput.value = 1;
-    }
+                totala += guztira;
+                eguneratuTotala();
 
-    function eguneratuTotala(){
-        document.getElementById("totala").textContent = "Totala = "+ totala.toFixed(2) + "€";
-    }
+                kantitateaInput.value = 1;
+            }
 
-    function vaciarSaskia(){
-        totala = 0;
-        eguneratuTotala();
-    }
-</script>
+            function eguneratuTotala() {
+                document.getElementById("totala").textContent = "Totala = " + totala.toFixed(2) + "€";
+            }
+
+            function vaciarSaskia() {
+                totala = 0;
+                eguneratuTotala();
+            }
+        </script>
     </main>
 
     <footer class="footer">

@@ -73,5 +73,12 @@ button:hover {
   font-size: 1.2rem;
   color: #333;
 }
+form#sarrerak h3 {
+  font-size: 1.3rem;
+  margin-top: 1rem;
+  margin-bottom: 0.5rem;
+  color: #333;
+  font-weight: 600;
+}
 
 
