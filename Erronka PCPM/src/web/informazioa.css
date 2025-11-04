@@ -1,4 +1,8 @@
-img {
+main{
+    padding: 40px 20px;
+    display: flex;
+}
+article img {
     width: 300px;
     height: 370px;
     border-radius: 14px;
@@ -14,4 +18,16 @@ ul>li{
 }
 q{
     color: yellow;
+}
+article{
+    margin-left: 10%;
+}
+article img{
+    width: 40vh;
+    height: 45vh;
+    margin-top: 0%;
+}
+article h1{
+    margin-bottom: 0%;
+    margin-top: 10%;
 }

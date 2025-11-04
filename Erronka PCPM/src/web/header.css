@@ -7,7 +7,7 @@
 body {
     font-family: 'Times New Roman', Times, serif;
     background-color: rgb(204, 204, 204);
-    color: white;
+    color: black;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
@@ -37,11 +37,13 @@ body {
 .logo h1 {
     font-size: 2rem;
     color: white;
+    
 }
 
 .logo img {
-    width: 50px;
-    height: 60px;
+    width: 8vh;
+    height:7vh;
+    margin-left: 0%;
 }
 
 .nabegazioa {
