@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="header.css">
     <link rel="stylesheet" href="orrialdenagusia.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="menuhanburguesa.css">
 </head>
 <body>
 
@@ -19,7 +20,7 @@
                 <img src="img/logo.png" alt="logoa">
             </div>
 
-            <nav class="nabegazioa">
+            <nav  class="nabegazioa">
                 <a href="Kartelera1.html">KARTELERA</a>
                 <a href="Informazioa1.html">INFORMAZIOA</a>
                 <a href="Balorazioak1.html">BALORAZIOAK</a>
@@ -27,12 +28,20 @@
                 <img src="img/ubicaciones.png" alt="maps" onclick="informazioaIkusi('ubikazioa')">
             </nav>
 
-            <button class="menu-hamburguesa">
+            <button class="menu-hamburguesa" id="menu-hamburguesa">
                 <span class="material-symbols-outlined">menu</span>
             </button>
         </div>
     </header>
+<div id="menu-laterala" class="menu-laterala">
+<button id="menua-itxi" class="menua-itxi">X</button>
+    <a href="kartelera.html" >KARTELERA</a>
+    <a href="informazioa.html" >INFORMAZIOA</a>
+    <a href="balorazioak.html" >BALORAZIOAK</a>
+    <a href="saskia.html" >SASKIA</a>
+ 
 
+</div>
     <main class="main">
         <section class="filmak">
             <article class="filma">
@@ -109,6 +118,16 @@
         laukia.style.display='none';
     }
     </script>
-
+<script>
+    const botoia=document.getElementById('menu-hamburguesa');
+    const menu=document.getElementById('menu-laterala');
+const menuaItxi=document.getElementById('menua-itxi');
+    botoia.onclick=function(){
+        menu.classList.toggle('ikusi');  
+    }
+    menuaItxi.onclick=function(){
+        menu.classList.remove('ikusi');
+    }
+</script>
 </body>
 </html>
