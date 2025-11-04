@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="eu">
+
+<head>
+    <title>ZINEMA USURBIL</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Zinema usurbilentzako webgunea">
+    <meta name="author" content="Iker Moreno Morillo">
+    <link rel="stylesheet" href="header.css">
+    <link rel="stylesheet" href="saskia.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
+    <link rel="stylesheet" href="menuhanburguesa.css">
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="header-kontenido">
+            <div class="logo">
+                <h1>ZINEMA USURBIL</h1>
+                <img src="img/logo.png" alt="logoa">
+            </div>
+
+            <nav class="nabegazioa">
+                <a href="Kartelera1.html">KARTELERA</a>
+                <a href="Informazioa1.html">INFORMAZIOA</a>
+                <a href="Balorazioak1.html">BALORAZIOAK</a>
+                <a href="Saskia1.html">SASKIA</a>
+                <img src="img/ubicaciones.png" alt="maps" onclick="informazioaIkusi('ubikazioa')">
+            </nav>
+
+            <button class="menu-hamburguesa" id="menu-hamburguesa">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </header>
+    <div id="menu-laterala" class="menu-laterala">
+        <button id="menua-itxi" class="menua-itxi">X</button>
+        <a href="kartelera.html">KARTELERA</a>
+        <a href="informazioa.html">INFORMAZIOA</a>
+        <a href="balorazioak.html">BALORAZIOAK</a>
+        <a href="saskia.html">SASKIA</a>
+
+
+    </div>
+    <main>
+
+        <h1>SASKIA</h1>
+        <form id="sarrerak">
+            <h3>Sarrera aukeratu</h3><label>Filma:</label><select id="filma">
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">EXPEDIENTE WARREN: EL ULTIMO RITO - 8€</option>
+                <option value="8.00">UNA BATALLA TRAS OTRA - 8€</option>
+                <option value="8.00">EL CAUTIVO - 8€</option>
+                <option value="8.00">DEMON SLAYER: EL CASTILLO INFINITO - 8€</option>
+                <option value="8.00">SKETCH CUIDADO CON LO QUE DIBUJAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="8.00">MASPALOMAS - 8€</option>
+            </select>
+
+<br>
+<br>
+<br>
+            <label>Sarrera mota aukeratu:</label>
+            <select id="mota">
+            <option value="Normala">Normala</option>
+            <option value="10 urte baino gutxiago">10 urte baino gutxiago (-2€)</option>
+            <option value="Gazte txartela">Gazte txartela(-3€)</option>
+            <option value="Deluxe sarrera">Deluxe sarrera</option>
+        </select>
+<br>
+<br>
+<br>
+        <label>Zenbat sarrera? (Gehienez 5 sarrera)</label>
+        <input type="number" id="kantitatea"value="1" min="1" max="5" style="width: 60px;">
+<br>
+<br>
+<br>    
+
+<button type="button" onclick="sarreraGehitu()">Saskiara gehitu</button>
+        </form>
+
+        <hr>
+        <h2>Sarrerak saskian:</h2>
+
+        <br>
+        <br>
+        <div id="saskia"></div>
+        <div id="totala">Totala = 0.00€</div>
+        <br>
+        <br>
+        <br>
+
+        <button type="button" onclick="vaciarSaskia()">Saskitik kendu</button>
+
+
+        <script>
+    let totala = 0;
+
+    function sarreraGehitu(){
+      
+        let filmakSelect = document.getElementById("filma");  
+        let sarreraMotaSelect = document.getElementById("mota");
+        let kantitateaInput = document.getElementById("kantitatea");
+
+        let hasierakoPrezioa = parseFloat(filmakSelect.value);
+        let mota = sarreraMotaSelect.value;
+        let kantitatea = parseInt(kantitateaInput.value);
+
+        let amaierakoPrezioa = hasierakoPrezioa;
+        if(mota == "10 urte baino gutxiago") amaierakoPrezioa -= 2;
+        if(mota == "Gazte txartela") amaierakoPrezioa -= 3;
+        if(mota == "Deluxe sarrera") amaierakoPrezioa += 2;
+
+        let guztira = amaierakoPrezioa * kantitatea;
+
+        totala += guztira;
+        eguneratuTotala();
+
+        kantitateaInput.value = 1;
+    }
+
+    function eguneratuTotala(){
+        document.getElementById("totala").textContent = "Totala = "+ totala.toFixed(2) + "€";
+    }
+
+    function vaciarSaskia(){
+        totala = 0;
+        eguneratuTotala();
+    }
+</script>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-kontenido">
+            <div class="sare-sozialak">
+                <img src="img/instagram(1).png" alt="instagram">
+                <img src="img/gorjeo.png" alt="X">
+            </div>
+
+            <div class="legal-loturak">
+                <a href="oharLegalak.html">Ohar legalak</a>
+                <a href="pribatasunPolitikak.html">Pribatasun politikak</a>
+                <a href="cookiesPolitikak.html">Cookies politikak</a>
+                <a href="erosketaBaldintzak.html">Erosketa baldintzak</a>
+                <a href="ebentoak.html">Ebentoak</a>
+                <a href="klientearekikoArreta.html">Klientearekiko arreta</a>
+            </div>
+
+            <div class="sare-sozialak">
+                <img src="img/facebook(1).png" alt="facebook">
+                <img src="img/gmail.png" alt="email">
+            </div>
+        </div>
+    </footer>
+
+
+    <div id="informazioa-ubikazioa" class="info-laukia" style="display: none;">
+        <h3>UBIKAZIOA</h3>
+        <p> Bo. Txiki-Erdi, 7, 20170 Usurbil, Gipuzkoa</p>
+        <a href="https://maps.app.goo.gl/yyCUBhPVmTmq5KhF6" target="_blank" class="maps-links">Egin klick maps-en
+            ikusteko</a>
+        <button onclick="itxiInformazioa('ubikazioa')">Itxi</button>
+    </div>
+
+    <script>
+        function informazioaIkusi(id) {
+            const laukia = document.getElementById('informazioa-' + id);
+            laukia.style.display = 'block';
+        }
+
+        function itxiInformazioa(id) {
+            const laukia = document.getElementById('informazioa-' + id);
+            laukia.style.display = 'none';
+        }
+    </script>
+    <script>
+        const botoia = document.getElementById('menu-hamburguesa');
+        const menu = document.getElementById('menu-laterala');
+        const menuaItxi = document.getElementById('menua-itxi');
+        botoia.onclick = function () {
+            menu.classList.toggle('ikusi');
+        }
+        menuaItxi.onclick = function () {
+            menu.classList.remove('ikusi');
+        }
+    </script>
+</body>
+
+</html>
