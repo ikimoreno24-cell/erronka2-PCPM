@@ -1,35 +1,120 @@
-main img{
-    width: 45vh;
-    height: 70vh;
-    margin-top: 5%;
-    margin-left: 2%;
-  
+main {
+  padding: 4rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
 }
 
-li{
-    display: flex;
-    align-items: flex-start;
-    gap: 3vh;
-    margin-bottom: 2%;
+
+.film-list,
+main ul {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
 }
-li details{
-    margin-top: 10vh;
-    border-collapse: collapse;
-    border: solid rgb(87, 85, 85);
-    margin-right: 3%;
+
+
+li {
+  display: flex;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  gap: 2rem;
+  padding: 2rem;
+  background-color: #1a1a1a; 
+  border-radius: 16px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border: 1px solid #2e2e2e;
 }
-p{
-    margin-left: 1.5%;
+
+li:hover {
+  transform: scale(1.01);
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
 }
-#sarrerak{
-    margin-top:1%;
+
+
+main img {
+  width: 250px;
+  height: 380px;
+  border-radius: 12px;
+  object-fit: cover;
+  border: 2px solid #2e2e2e;
 }
-summary{
-    margin-bottom: 1%;
+
+li details {
+  flex: 1;
+  background-color: #222;
+  border-radius: 12px;
+  padding: 1.5rem;
+  color: #e5e5e5;
+  border: 1px solid #333;
 }
-iframe{
-    margin-top: 2%;
-    margin-bottom: 2%;
-    margin-left: 24%;
-    align-items: center;
+
+li details[open] {
+  border: 1px solid #444;
+  background-color: #262626;
 }
+
+summary {
+  font-size: 1.4rem;
+  font-weight: 600;
+  cursor: pointer;
+  color: #fff;
+  margin-bottom: 1rem;
+  transition: color 0.2s;
+}
+
+summary:hover {
+  color: #bfbfbf;
+}
+
+
+p {
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #ccc;
+  line-height: 1.6;
+}
+
+p strong {
+  color: #fff;
+}
+
+
+q {
+  color: yellow;
+  font-size: 1.2rem;
+}
+
+
+iframe {
+  display: block;
+  margin: 1.5rem auto;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 560px;
+  height: 315px;
+  border: 1px solid #333;
+}
+
+button {
+  display: block;
+  margin: 1rem auto 0;
+  background-color: #fff;
+  color: #000;
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 0.7rem 2rem;
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background 0.3s, transform 0.2s, color 0.3s;
+}
+
+button:hover {
+  background-color: #e0e0e0;
+  color: #111;
+  transform: translateY(-2px);
+}
+
+
