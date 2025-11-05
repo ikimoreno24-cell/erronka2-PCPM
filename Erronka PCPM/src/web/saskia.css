@@ -14,6 +14,11 @@ main h1 {
   font-size: 2rem;
   margin-bottom: 2rem;
   color: #222;
+  background-color: #ffcc00;
+
+  border-radius: 10px;
+
+
 }
 
 h2 {
@@ -42,7 +47,7 @@ form#sarrerak input[type="number"] {
 }
 
 
-button {
+ main button {
   background-color: #ffcc00;
   border: none;
   border-radius: 0.5rem;
@@ -52,7 +57,7 @@ button {
   transition: background 0.3s, transform 0.2s;
 }
 
-button:hover {
+ main button:hover {
   background-color: #ffb700;
   transform: translateY(-2px);
 }

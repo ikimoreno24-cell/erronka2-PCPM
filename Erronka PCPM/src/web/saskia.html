@@ -49,11 +49,13 @@
         <h1>SASKIA</h1>
 
         <form id="sarrerak">
-            <h3>Sarrera aukeratu</h3>
+            <h3>Filma aukeratu</h3>
+            <hr style="border: none; height: 1px; background-color: #ffcc00; margin-bottom: 10px;">
+    
 
-            <label for="filma">Filma:</label>
+            <label for="filma"></label>
             <select id="filma">
-                <option value="8.00">MASPALOMAS - 8€</option>
+                <option value="3.00">MASPALOMAS - 8€ ( Ofertan (-5€))</option>
                 <option value="6.00">EXPEDIENTE WARREN: EL ULTIMO RITO - 6€</option>
                 <option value="8.00">UNA BATALLA TRAS OTRA - 8€</option>
                 <option value="6.00">EL CAUTIVO - 6€</option>
@@ -74,22 +76,28 @@
             </select>
 
             <h3>Sarrera mota aukeratu</h3>
+
+
+            <hr style="border: none; height: 1px; background-color: #ffcc00; margin-bottom: 10px;">
             <select id="mota">
                 <option value="Normala">Normala</option>
                 <option value="10 urte baino gutxiago">10 urte baino gutxiago (-2€)</option>
                 <option value="Gazte txartela">Gazte txartela (-3€)</option>
-                <option value="Deluxe sarrera">Deluxe sarrera</option>
+                <option value="Deluxe sarrera">Deluxe sarrera (+2€)</option>
             </select>
 
             <h3>Zenbat sarrera? (gehienez 5)</h3>
+            <hr style="border: none; height: 1px; background-color: #ffcc00; margin-bottom: 10px;">
+         
             <input type="number" id="kantitatea" value="1" min="1" max="5" style="width: 80px;">
 
             <button type="button" onclick="sarreraGehitu()">Saskiara gehitu</button>
         </form>
 
 
-        <hr>
-        <h2>Sarrerak saskian:</h2>
+      
+        
+  
         <br>
         <br>
         <div id="saskia"></div>
@@ -138,8 +146,8 @@
     <footer class="footer">
         <div class="footer-kontenido">
             <div class="sare-sozialak">
-                <img src="img/instagram(1).png" alt="instagram">
-                <img src="img/gorjeo.png" alt="X">
+                 <a href="https://www.instagram.com/cinesa.es/">  <img src="img/instagram(1).png" alt="instagram"></a>
+               <a href="https://x.com/Cinesa">   <img src="img/gorjeo.png" alt="X"></a>
             </div>
 
             <div class="legal-loturak">
@@ -152,8 +160,8 @@
             </div>
 
             <div class="sare-sozialak">
-                <img src="img/facebook(1).png" alt="facebook">
-                <img src="img/gmail.png" alt="email">
+             <a href="www.facebook.com/cinesa.es"> <img src="img/facebook(1).png" alt="facebook"></a>
+              <a href="mailto:info@cinesa.es">    <img src="img/gmail.png" alt="email"></a>
             </div>
         </div>
     </footer>
