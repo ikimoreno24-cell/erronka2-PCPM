@@ -3,7 +3,7 @@ import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
 
-public class App {  
+public class app {  
     private static HashMap<String, ArrayList<Integer>> egutegia = new HashMap<>();
     
     static {
