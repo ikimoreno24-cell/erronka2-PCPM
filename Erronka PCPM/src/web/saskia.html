@@ -45,13 +45,23 @@
 
     </div>
     <main>
+        <script>
+            function ikusiNotifikazioa() {
+                const notifikazioa = document.getElementById("notifikazioa");
+                notifikazioa.classList.add('ikusi');
 
+
+                setTimeout(function () {
+                    notifikazioa.classList.remove('ikusi');
+                }, 3000);
+            }
+        </script>
         <h1>SASKIA</h1>
 
         <form id="sarrerak">
             <h3>Filma aukeratu</h3>
             <hr style="border: none; height: 1px; background-color: #ffcc00; margin-bottom: 10px;">
-    
+
 
             <label for="filma"></label>
             <select id="filma">
@@ -88,16 +98,16 @@
 
             <h3>Zenbat sarrera? (gehienez 5)</h3>
             <hr style="border: none; height: 1px; background-color: #ffcc00; margin-bottom: 10px;">
-         
+
             <input type="number" id="kantitatea" value="1" min="1" max="5" style="width: 80px;">
 
             <button type="button" onclick="sarreraGehitu()">Saskiara gehitu</button>
         </form>
 
 
-      
-        
-  
+
+
+
         <br>
         <br>
         <div id="saskia"></div>
@@ -105,6 +115,14 @@
         <br>
         <br>
         <button type="button" onclick="vaciarSaskia()">Saskitik kendu</button>
+        <button class="ordaindu" onclick="ikusiNotifikazioa()">ORDAINDU</button>
+
+        <div class="notifikazioa" id="notifikazioa">
+            EROSKETA BURUTU DA ✔ - Eskerrik asko!
+        </div>
+        <div class="notifikazioa notifikazioa-ken" id="notifikazioa-ken">
+    🗑️ Saskia hutsik geratu da!
+</div>
 
         <script>
             let totala = 0;
@@ -139,6 +157,7 @@
             function vaciarSaskia() {
                 totala = 0;
                 eguneratuTotala();
+                 ikusiNotifikazioaKendu();
             }
         </script>
     </main>
@@ -146,8 +165,8 @@
     <footer class="footer">
         <div class="footer-kontenido">
             <div class="sare-sozialak">
-                 <a href="https://www.instagram.com/cinesa.es/">  <img src="img/instagram(1).png" alt="instagram"></a>
-               <a href="https://x.com/Cinesa">   <img src="img/gorjeo.png" alt="X"></a>
+                <a href="https://www.instagram.com/cinesa.es/"> <img src="img/instagram(1).png" alt="instagram"></a>
+                <a href="https://x.com/Cinesa"> <img src="img/gorjeo.png" alt="X"></a>
             </div>
 
             <div class="legal-loturak">
@@ -160,8 +179,8 @@
             </div>
 
             <div class="sare-sozialak">
-             <a href="www.facebook.com/cinesa.es"> <img src="img/facebook(1).png" alt="facebook"></a>
-              <a href="mailto:info@cinesa.es">    <img src="img/gmail.png" alt="email"></a>
+                <a href="www.facebook.com/cinesa.es"> <img src="img/facebook(1).png" alt="facebook"></a>
+                <a href="mailto:info@cinesa.es"> <img src="img/gmail.png" alt="email"></a>
             </div>
         </div>
     </footer>
@@ -197,6 +216,36 @@
             menu.classList.remove('ikusi');
         }
     </script>
+
+
+
+
+
+    <script>
+        function ikusiNotifikazioa() {
+            const notifikazioa = document.getElementById("notifikazioa");
+            notifikazioa.classList.add('ikusi');
+
+
+            setTimeout(function () {
+                notifikazioa.classList.remove('ikusi');
+            }, 3000);
+        }
+    </script>
+    <script>
+        function ikusiNotifikazioaKendu() {
+            const notifikazioaKen = document.getElementById("notifikazioa-ken");
+            notifikazioaKen.classList.add('ikusi');
+
+            setTimeout(function () {
+                notifikazioaKen.classList.remove('ikusi');
+            }, 3000);
+        }</script>
+
+
+
+
+
 </body>
 
 </html>

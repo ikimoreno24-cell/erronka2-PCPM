@@ -85,5 +85,32 @@ form#sarrerak h3 {
   color: #333;
   font-weight: 600;
 }
+.notifikazioa {
+    position: fixed;
+    top: 50%;              
+    left: 50%;              
+    transform: translate(-50%, -50%); 
+    
+    background-color: #4CAF50;
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+
+    opacity: 0;
+    pointer-events: none;    
+    transition: opacity 0.5s ease, transform 0.3s ease;
+    z-index: 9999;
+}
 
 
+.notifikazioa.ikusi {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translate(-50%, -50%) scale(1.05); 
+}
+.notifikazioa-ken {
+  background-color: #d93025;
+}
