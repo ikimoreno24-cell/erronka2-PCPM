@@ -1,0 +1,93 @@
+
+
+
+main {
+    background-color: #121212;
+    color: #f0f0f0;
+    padding: 2rem 1rem;
+    min-height: calc(100vh - 150px); 
+}
+
+
+.produktuak-ontzia {
+    display: grid;
+   
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+
+.produktu-txartela {
+    background-color: #242424;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    
+  
+    display: flex;
+    flex-direction: column;
+}
+
+.produktu-txartela img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 1rem;
+    background-color: #555;
+}
+
+.produktu-txartela h3 {
+    color: #FFFFFF;
+    font-size: 1.5rem;
+    margin: 0.5rem 0;
+}
+
+.prezioa {
+    color: #AAAAAA;
+    font-size: 1.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+
+.kantitatea-label {
+    color: #AAAAAA;
+    font-size: 0.9rem;
+    margin-bottom: 0.25rem;
+}
+
+.kantitatea-input {
+    background-color: #333;
+    color: #FFFFFF;
+    border: 1px solid #555;
+    border-radius: 4px;
+    padding: 0.5rem;
+    width: 80px; 
+    text-align: center;
+    font-size: 1rem;
+    margin: 0 auto 1.5rem auto; 
+}
+
+
+
+
+
+.erosi-botoia {
+    background-color: #f0f0f0; 
+    color: #121212;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: 0.75rem 1rem;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    text-transform: uppercase;
+    margin-top: auto;
+}
+
+.erosi-botoia:hover {
+    background-color: #cccccc;
+}
