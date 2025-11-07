@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const progresoKarga = document.getElementById('kargaprozesua');
     
     let progresoa = 0;
-    const iraupena = 3000; 
+    const iraupena = 300; 
     const tartea = 50; 
     
     const gehikuntza = 100 / (iraupena / tartea);
