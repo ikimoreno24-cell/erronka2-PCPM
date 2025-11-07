@@ -29,9 +29,10 @@ body {
 }
 
 .logo {
+    margin-left: -5%;
     display: flex;
     align-items: center;
-    gap: 10 px;
+    gap: 10px;
 }
 
 .logo h1 {
@@ -60,10 +61,10 @@ body {
      transform: scale(1.2);
 }
 
-.nabegazioa a {
+.nabegazioa a {     
     color: white;
     text-decoration: none;
-    padding: 10px 20px;
+    padding: 10px 25px;
     border-radius: 5px;
 }
 
