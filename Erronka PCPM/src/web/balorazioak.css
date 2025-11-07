@@ -1,0 +1,32 @@
+main h1{
+    text-align: center;
+    padding: 2vh;
+}
+.balorazioa{
+    display: flex;
+    justify-content: center;
+
+    direction: rtl; /* Para que se seleccionen de derecha a izquierda */
+    font-size: 2em;
+}
+
+.balorazioa input {
+    display: none; /* Ocultamos los radio buttons */
+}
+
+.balorazioa label {
+    color: #0f0e0e;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.balorazioa input:checked ~ label {
+    color: gold; /* Las estrellas seleccionadas se ponen doradas */
+}
+
+.balorazioa label:hover,
+
+.balorazioa label:hover ~ label {
+    color: gold; /* Efecto al pasar el ratón */
+}
+
