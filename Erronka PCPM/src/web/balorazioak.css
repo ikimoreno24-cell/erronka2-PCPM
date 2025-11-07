@@ -1,0 +1,79 @@
+main h1{
+    text-align: center;
+    padding: 2vh;
+}
+.balorazioa{
+    display: flex;
+    justify-content: center;
+
+    direction: rtl; /* Para que se seleccionen de derecha a izquierda */
+    font-size: 2em;
+}
+
+.balorazioa input {
+    display: none; /* Ocultamos los radio buttons */
+}
+
+.balorazioa label {
+    color: #0f0e0e;
+    cursor: pointer;
+    transition: color 0.35s;
+}
+
+.balorazioa input:checked ~ label {
+    color: gold; /* Las estrellas seleccionadas se ponen doradas */
+}
+
+.balorazioa label:hover,
+
+.balorazioa label:hover ~ label {
+    color: gold; /* Efecto al pasar el ratón */
+}
+img{
+    width: 60vh;
+    height: 40vh;
+    margin-left: 2%;
+}
+#table{
+    margin-left: 2%;
+    
+}
+#table th{
+    width: 59vh;
+}
+#table td{
+    text-align: center;
+}
+#table tbody tr:nth-child(odd) {
+    font-weight: bold;
+}
+#table tbody tr:nth-child(even) {
+    font-style:italic ;
+}
+.koadroa{
+    float: right;
+    margin-right: 15%;
+}
+.text{
+    margin-top: 1%;
+    border: none;
+    background-color: white;
+    border: 1px solid rgb(5, 5, 5);
+    color: rgb(0, 0, 0);
+    padding: 8px 12px;
+    border-radius: 20px;
+    width: 90vh;
+    height: 48vh;
+    box-sizing: border-box;
+}
+button{
+    border-radius: 5vh;
+    width: 10%;
+    margin-left: 1%;
+}
+button:hover{
+    transform:scale(1.05);
+    cursor: pointer;
+    border: dashed;
+}
+

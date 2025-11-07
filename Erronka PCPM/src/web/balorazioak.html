@@ -7,7 +7,7 @@
     <meta name="description" content="Zinema usurbilentzako webgunea">
     <meta name="author" content="Iker Moreno Morillo">
     <link rel="stylesheet" href="header.css">
-    <link rel="stylesheet" href="informazioa.css">
+    <link rel="stylesheet" href="balorazioak.css">
     <link rel="stylesheet" href="menuhanburguesa.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" />
 </head>
@@ -22,10 +22,8 @@
             <nav class="nabegazioa">
                 <a href="kartelera.html">KARTELERA</a>
                 <a href="OrrialdeNagusia.html">PORTADA</a>
-                <a href="balorazioak.html">BALORAZIOAK</a>
+                <a href="informazioa.html">INFORMAZIOA</a>
                 <a href="saskia.html">SASKIA</a>
-        <a href="aperitiboak.html">JANARIA</a>
-
                 <img src="img/ubicaciones.png" alt="maps" onclick="informazioaIkusi('ubikazioa')">
             </nav>
 
@@ -41,33 +39,53 @@
         <a href="OrrialdeNagusia.html">ORRIALDE NAGUSIA</a>
         <a href="balorazioak.html">BALORAZIOAK</a>
         <a href="saskia.html">SASKIA</a>
-        <a href="aperitiboak.html">JANARIA</a>
-
     </div>
 
     <main>
-        <section>
-        <div class="kokalekua">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d5810.088832907463!2d-2.054968554611487!3d43.27144528449081!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd51b1206db8209d%3A0x9489561f4102465!2s20170%20Usurbil%2C%20Guip%C3%BAzcoa!5e0!3m2!1ses!2ses!4v1762155436591!5m2!1ses!2ses" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-            <h2>Usurbil 20170</h2>
-            <h3>Errekatxiki kalea 15</h3>
+        <h1>ERRESEINAK</h1>
+        <div class="balorazioa">
+            <input type="radio" id="estrella1" name="rating" value="1">
+            <label for="estrella5">★</label>
+            <input type=" radio" id="estrella2" name="rating" value="1">
+            <label for="estrella2">★</label>
+            <input type="radio" id="estrella3" name="rating" value="1">
+            <label for="estrella3">★</label>
+            <input type="radio" id="estrella4" name="rating" value="1">
+            <label for="estrella4">★</label>
+            <input type="radio" id="estrella5" name="rating" value="1">
+            <label for="estrella5">★</label>
         </div>
+        <div class="koadroa">
+            <textarea class="text" placeholder="Idatzi hemen..."></textarea>
+            <br>
+            <button>bidali</button>
+        </div>
+        
+        <section>
+        <img src="img/cine.jpg">
+        <table id="table" border="1">
+        <thead>
+            <tr>
+            <th colspan="3"><p>ZINEMA USURBIL</p></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+            <td><p>Usurbil, Errekatxiki kalea 15</p></td>
+            </tr>
+            <tr>
+            <td><p>Postal - kodea 20170</p></td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+            <td colspan="3"><p>ORDUTEGIA: 17:00 - 00:00</p></td>
+            </tr>
+        </tfoot>
+        </table>
         </section>
-        <article>
-            <div class="Estreno">
-                <p>Usurbilen kokatzen den zinema bat gara,
-                errekatxiki kalean kokatuta.<br>
-                Etorri gurekin zure pelikula gustokoenak ikustera
-                eta gozatu<br>
-                ZINEMA!AKZIOA! esperientziaz.
-                </p>
-                <h1>ESTRENO!!</h1>
-                <figure>
-                    <img src="img/filma6.png" alt="avatar">
-                    <figcaption><b>AVATAR : EL SENTIDO DEL AGUA</b></figcaption>
-                </figure> 
-            </div>
-        </article>
+
+
     </main>
 
     <footer class="footer">
