@@ -5,6 +5,10 @@ import java.util.HashMap;
 
 public class app {  
     private static HashMap<String, ArrayList<Integer>> egutegia = new HashMap<>();
+
+    static String agurra() {
+        return "Kaixo";
+    }
     
     static {
         ArrayList<Integer> astelehena = new ArrayList<>();
@@ -35,9 +39,7 @@ public class app {
     }
     
 
-    public static String agurra() {
-        return "Kaixo";
-    }
+    
     
     public static void main(String[] args) {
         hasierakoMenua menu = new hasierakoMenua();
