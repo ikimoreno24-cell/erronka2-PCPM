@@ -1,16 +1,25 @@
 package APLIKAZIOA;
 import java.util.ArrayList;
 
+/**
+ * Hasierako menua kudeatzeko klasea
+ * Programa nagusiaren menua erakusten eta kudeatzen du
+ */
 public class hasierakoMenua {
     private ArrayList<String> hasierakoMenua;
     private boolean programaMartxan;
     
+    /**
+     * Eraikitzailea - Menua hasieratzen du
+     */
     public hasierakoMenua() {
         kargatuhasierakoMenuak();
         this.programaMartxan = true;  
     }
     
-    //Menua kargatzen dugu
+    /**
+     * Menua kargatzen dugu
+     */
     private void kargatuhasierakoMenuak() {
         hasierakoMenua = new ArrayList<>();
         hasierakoMenua.add("Asteko egunak");
@@ -21,27 +30,43 @@ public class hasierakoMenua {
         hasierakoMenua.add("Itxi");
     }
     
-    //Menua lortzeko
+    /**
+     * Menua lortzeko
+     * @return Menuaren elementuen zerrenda
+     */
     public ArrayList<String> getMenuNagusia() {
         return new ArrayList<>(hasierakoMenua);
     }
     
-    //Programa martxan dagoen ikusteko
+    /**
+     * Programa martxan dagoen ikusteko
+     * @return true programa martxan badago, false bestela
+     */
     public boolean dagoProgramaMartxan() {
         return programaMartxan;
     }
     
-    //Programa itxi
+    /**
+     * Programa itxi
+     */
     public void itxiPrograma() {
         this.programaMartxan = false;
     }
     
-    //Aukera baliozkoa den ikusteko
+    /**
+     * Aukera baliozkoa den ikusteko
+     * @param aukera Egiaztatuko den aukera
+     * @return true aukera baliozkoa bada, false bestela
+     */
     public boolean aukeraBaliozkoaDa(int aukera) {
         return aukera >= 1 && aukera <= hasierakoMenua.size();
     }
     
-    //Aukera prozesatzen dugu
+    /**
+     * Aukera prozesatzen dugu
+     * @param aukera Prozesatuko den aukera
+     * @return true jarraitu behar bada, false programatik irten behar bada
+     */
     public boolean prozesatuAukera(int aukera) {
         if (!aukeraBaliozkoaDa(aukera)) {
             System.out.println("Zenbakia ez da baliozkoa");
@@ -59,7 +84,9 @@ public class hasierakoMenua {
         return true;  
     }
     
-    //Menua erakusten dugu
+    /**
+     * Menua erakusten dugu
+     */
     public void erakutsiMenua() {
         System.out.println("\nMenu nagusia:");
         System.out.println("Aukeratu opzio bat");

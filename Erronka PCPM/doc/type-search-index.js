@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"APLIKAZIOA","l":"app"},{"p":"APLIKAZIOA","l":"aukeratuAsteburua"},{"p":"APLIKAZIOA","l":"gelak"},{"p":"APLIKAZIOA","l":"hasierakoMenua"},{"p":"APLIKAZIOA","l":"koloreak"},{"p":"APLIKAZIOA","l":"pelikula"},{"p":"APLIKAZIOA","l":"zinea"}];updateSearchResults();

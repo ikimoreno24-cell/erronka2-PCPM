@@ -1,15 +1,24 @@
 package APLIKAZIOA;
 import java.util.ArrayList;
 
+/**
+ * Zinearen klase nagusia
+ * Gelak eta pelikulak kudeatzen ditu
+ */
 public class zinea {
     private ArrayList<gelak> gelenLista;
     
+    /**
+     * Eraikitzailea - Zinea eta bere datuak hasieratzen ditu
+     */
     public zinea() {
         this.gelenLista = new ArrayList<>();
         kargatuDatuak();
     }
     
-    //Filmak sartzeko bere izena eta kolorearekin eta bere gelan
+    /**
+     * Filmak sartzeko bere izena eta kolorearekin eta bere gelan
+     */
     public void kargatuDatuak() {
         gelak umeenGela = new gelak("Umeen gela", koloreak.CYAN);
         umeenGela.gehituPelikula(new pelikula("Lilo y Stitch ", koloreak.CYAN));
@@ -42,12 +51,19 @@ public class zinea {
         gelenLista.add(komediaGela);
     }
     
-    //Gelak lortzeko
+    /**
+     * Gelak lortzeko
+     * @return Gelen zerrenda
+     */
     public ArrayList<gelak> getGelak() {
         return gelenLista;
     }
     
-    //Gela bat lortzeko
+    /**
+     * Gela bat lortzeko
+     * @param index Gela lortzeko indizea
+     * @return Aukeratutako gela, edo null indizea baliogabea bada
+     */
     public gelak getGela(int index) {
         if (index >= 0 && index < gelenLista.size()) {
             return gelenLista.get(index);
@@ -55,7 +71,10 @@ public class zinea {
         return null;
     }
     
-    //Gela kopurua lortzeko
+    /**
+     * Gela kopurua lortzeko
+     * @return Gelen kopurua
+     */
     public int getGelaKopurua() {
         return gelenLista.size();
     }
