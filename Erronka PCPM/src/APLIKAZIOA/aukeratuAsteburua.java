@@ -16,7 +16,8 @@ public class aukeratuAsteburua {
         kargatuAsteBuruZenbakiak();
         this.azkenPelikulak = new ArrayList<>(); 
     }
-
+    
+    //Hilabeteak kargatzen dugu
     private void kargatuHilabeteak() {
         hilabeteak.add("Urtarrila");
         hilabeteak.add("Otsaila");
@@ -31,73 +32,84 @@ public class aukeratuAsteburua {
         hilabeteak.add("Azaroa");
         hilabeteak.add("Abendua");
     }
-
+    
+    //Asteburu zenbakiak kargatzen dugu
     private void kargatuAsteBuruZenbakiak() {
         asteburuZenbakiak.add("Lehen asteburua");
         asteburuZenbakiak.add("Bigarren asteburua");
         asteburuZenbakiak.add("Hirugarren asteburua");
         asteburuZenbakiak.add("Laugarren asteburua"); 
     }
-
+    
+    //Asteburuko egunak kargatzen dugu
     private void kargatuAsteBuruak() {
         asteburuak.add("Larunbata"); 
         asteburuak.add("Igandea");
     }
-
+    
+    //Hilabeteak erakusten dugu
     public void erakutsiHilabeteak() {
         System.out.println("\nAukeratu hilabetea:");
         for (int i = 0; i < hilabeteak.size(); i++) {
             System.out.println((i + 1) + ". " + hilabeteak.get(i));
         }
     }
-
+    
+    //Asteburu zenbakiak erakusten dugu
     public void erakutsiAsteburuZenbakiak() { 
         System.out.println("\nAukeratu zein asteburu:");
         for (int i = 0; i < asteburuZenbakiak.size(); i++) {
             System.out.println((i + 1) + ". " + asteburuZenbakiak.get(i));
         }
     }
-
+    
+    //Asteburuko egunak erakusten dugu
     public void erakutsiAsteBuruak() {
         System.out.println("\nAukeratu asteburuko eguna:"); 
         for (int i = 0; i < asteburuak.size(); i++) {
             System.out.println((i + 1) + ". " + asteburuak.get(i));
         }
     }
-
+    
+    //Hilabetea lortzeko
     public String getHilabetea(int index) {
         if (index >= 0 && index < hilabeteak.size()) { 
             return hilabeteak.get(index);
         }
         return null;
     }
-
+    
+    //Asteburuko eguna lortzeko
     public String getAsteburua(int index) {
         if (index >= 0 && index < asteburuak.size()) {
             return asteburuak.get(index);
         }
         return null;
     }
-
+    
+    //Asteburu zenbakia lortzeko
     public String getAsteburuZenbakia(int index) {
         if (index >= 0 && index < asteburuZenbakiak.size()) {
             return asteburuZenbakiak.get(index);
         }
         return null;
     }
-
+    
+    //4 film ausaz erakusten dugu
     public void erakutsiEgunekoFilmak() {
         System.out.println("\nAstebururako pelikula aukerak (4 film ausaz):");
 
         ArrayList<pelikula> filmaGuztiak = new ArrayList<>();
 
+        //Film guztiak biltzen dugu
         for (gelak gela : zine.getGelak()) {
             filmaGuztiak.addAll(gela.getPelikulak());
         }
 
+        //Filmak nahasten dugu
         Collections.shuffle(filmaGuztiak);
 
-    
+        //4 film aukeratzen dugu
         this.azkenPelikulak.clear();
         for (int i = 0; i < 4; i++) {
             pelikula p = filmaGuztiak.get(i % filmaGuztiak.size()); 
@@ -107,23 +119,27 @@ public class aukeratuAsteburua {
         }
     }
 
- 
+    //Aukeratutako filmak lortzeko
     public ArrayList<pelikula> getAzkenPelikulak() {
         return azkenPelikulak;
     }
 
+    //Hilabete kopurua lortzeko
     public int getHilabeteKopurua() {
         return hilabeteak.size();
     }
 
+    //Asteburu kopurua lortzeko
     public int getAsteburuKopurua() {
         return asteburuak.size();
     }
 
+    //Asteburu zenbaki kopurua lortzeko
     public int getAsteburuZenbakiKopurua() {
         return asteburuZenbakiak.size();
     }
 
+    //Zinea lortzeko
     public zinea getZine() {
         return zine;
     }

@@ -1,15 +1,20 @@
+//File hau aplikazio prinzipala da
+
 package APLIKAZIOA;
 import java.util.Scanner;
 import java.util.ArrayList;
 import java.util.HashMap;
-
+/*Hashmap da ipintzeko key eta value bat, kasu honetan izango da String eta ArrayList baten artean
+ * non "Astelehena" izango da key (giltza) eta 'astelehena' (lista) sartzen zaio value (balioa) bezala
+*/
 public class app {  
     private static HashMap<String, ArrayList<Integer>> egutegia = new HashMap<>();
-
+//@Test bat
     static String agurra() {
         return "Kaixo";
     }
     
+    //Egutegia hasieratzen dugu
     static {
         ArrayList<Integer> astelehena = new ArrayList<>();
         astelehena.add(4);
@@ -42,15 +47,18 @@ public class app {
     
     
     public static void main(String[] args) {
+        //Objektuak sortu
         hasierakoMenua menu = new hasierakoMenua();
         zinea cine = new zinea();
         aukeratuAsteburua asteburuaAukeraketa = new aukeratuAsteburua(cine);
         Scanner sc = new Scanner(System.in);
         
+        //Menuaren atala aukeratzeko
         while (menu.dagoProgramaMartxan()) {
             menu.erakutsiMenua();
             int opzioa = sc.nextInt();
             
+            //Aukera balioztatzen dugu
             if (!menu.aukeraBaliozkoaDa(opzioa)) {
                 System.out.println("Zenbakia ez da baliozkoa");
                 continue;
@@ -58,6 +66,7 @@ public class app {
             
             String aukeratutakoa = menu.getMenuNagusia().get(opzioa - 1);
             
+            //Menua prozesatzen dugu
             if (aukeratutakoa.equals("Asteko egunak")) {
                 prozesatuAstekoEgunak(cine, sc);
             } else if (aukeratutakoa.equals("Informazio orokorra")) {
@@ -76,10 +85,12 @@ public class app {
         sc.close();
     }
     
+    //Asteburua aukeratzeko prozesua
     private static void prozesatuAsteburuaAukeraketa(aukeratuAsteburua asteburuaAukeraketa, Scanner sc) {
         asteburuaAukeraketa.erakutsiHilabeteak();
         int hilabeteAukera = sc.nextInt();
         
+        //Hilabetea balioztatzen dugu
         if (hilabeteAukera < 1 || hilabeteAukera > asteburuaAukeraketa.getHilabeteKopurua()) {
             System.out.println("Hilabete okerra aukeratu duzu");
             return;
@@ -91,6 +102,7 @@ public class app {
         asteburuaAukeraketa.erakutsiAsteburuZenbakiak();
         int asteburuZenbakiAukera = sc.nextInt();
         
+        //Zenbakia balioztatzen dugu
         if (asteburuZenbakiAukera < 1 || asteburuZenbakiAukera > asteburuaAukeraketa.getAsteburuZenbakiKopurua()) {
             System.out.println("Asteburu zenbakia okerra aukeratu duzu");
             return;
@@ -101,6 +113,7 @@ public class app {
         asteburuaAukeraketa.erakutsiAsteBuruak();
         int asteburuAukera = sc.nextInt();
         
+        //Asteburua balioztatzen dugu
         if (asteburuAukera < 1 || asteburuAukera > asteburuaAukeraketa.getAsteburuKopurua()) {
             System.out.println("Asteburuko eguna okerra aukeratu duzu");
             return;
@@ -112,6 +125,7 @@ public class app {
         
         asteburuaAukeraketa.erakutsiEgunekoFilmak();
         
+        //Sarrerak erosteko galdetu
         System.out.println("\nErosi sarrerak asteburu honetarako? (Bai/Ez)");
         sc.nextLine(); 
         String erantzuna = sc.nextLine();
@@ -123,6 +137,7 @@ public class app {
         }
     }
     
+    //Asteburuko erosketa prozesatzen dugu
     private static void prozesatuErosketaAsteburua(ArrayList<pelikula> pelikulak, Scanner sc) {
         System.out.println("\nAukeratu filma:");
         for (int i = 0; i < pelikulak.size(); i++) {
@@ -133,6 +148,7 @@ public class app {
         
         int pelikulaAukera = sc.nextInt() - 1;
         
+        //Filma balioztatzen dugu
         if (pelikulaAukera < 0 || pelikulaAukera >= pelikulak.size()) {
             System.out.println("Filma okerra aukeratu duzu.");
             return;
@@ -143,6 +159,7 @@ public class app {
         System.out.println("Zenbat sarrera nahi dituzu?");
         int sarrerak = sc.nextInt();
         
+        //Stocka balioztatzen dugu
         if (sarrerak >= 1 && sarrerak <= aukeratutakoPelikula.getStock()) {
             aukeratutakoPelikula.kenduStock(sarrerak);
             System.out.println("Erosketa ondo egin da!");
@@ -152,6 +169,7 @@ public class app {
         }
     }
     
+    //Asteko egunak prozesatzen dugu
     private static void prozesatuAstekoEgunak(zinea cine, Scanner sc) {
         ArrayList<String> astekoegunak = new ArrayList<>();
         astekoegunak.add("Astelehena");
@@ -166,6 +184,7 @@ public class app {
         }
         
         int egunaAukera = sc.nextInt();
+        //Eguna balioztatzen dugu
         if (egunaAukera < 1 || egunaAukera > astekoegunak.size()) {
             System.out.println("Sartutako zenbakia baliogabea da");
             return;
@@ -178,6 +197,7 @@ public class app {
         prozesatuErosketa(eguna, cine, sc);
     }
     
+    //Eguneko gelak erakusten dugu
     private static void erakutsiEgunekoGelak(String eguna, zinea cine) {
         System.out.println(eguna + "ko gelak eta pelikulak hauek dira:");
         
@@ -192,6 +212,7 @@ public class app {
         }
     }
     
+    //Erosketa prozesatzen dugu
     private static void prozesatuErosketa(String eguna, zinea cine, Scanner sc) {
         ArrayList<Integer> egunekoGelak = egutegia.get(eguna);
         if (egunekoGelak == null || egunekoGelak.isEmpty()) {
@@ -206,6 +227,7 @@ public class app {
         }
         
         int gelaAukera = sc.nextInt() - 1;
+        //Gela balioztatzen dugu
         if (gelaAukera < 0 || gelaAukera >= egunekoGelak.size()) {
             System.out.println("Gela okerra");
             return;
@@ -219,6 +241,7 @@ public class app {
         int pelikulaAukera = sc.nextInt() - 1;
         pelikula aukeratutakoPelikula = aukeratutakoGela.bilatuPelikula(pelikulaAukera);
         
+        //Filma balioztatzen dugu
         if (aukeratutakoPelikula == null) {
             System.out.println("Filma okerra.");
             return;
@@ -227,6 +250,7 @@ public class app {
         System.out.println("Zenbat sarrera nahi dituzu?");
         int sarrerak = sc.nextInt();
         
+        //Stocka balioztatzen dugu
         if (sarrerak >= 1 && sarrerak <= aukeratutakoPelikula.getStock()) {
             aukeratutakoPelikula.kenduStock(sarrerak);
             System.out.println("Erosketa ondo egin da");
@@ -236,6 +260,7 @@ public class app {
         }
     }
     
+    //Informazio orokorra erakusten dugu
     private static void erakutsiInformazioOrokorra(zinea cine) {
         System.out.println("Hau(ek) dira gaurko filmak:");
         int pelikulaKopurua = 0;
@@ -255,12 +280,14 @@ public class app {
         }
     }
     
+    //Kokapena erakusten dugu
     private static void erakutsiKokapena() {
         System.out.println("Kokapena:");
         System.out.println("CINESA URBIL, Bo. Txiki-Erdi, 7, 20170 Usurbil, Gipuzkoa");
         System.out.println("Google Maps: https://maps.app.goo.gl/49cqJqFQa9R3NaGV6");
     }
     
+    //Ordutegia erakusten dugu
     private static void erakutsiOrdutegia() {
         System.out.println("Informazioa");
         System.out.println("Asteleheneko ordutegia: 16:00 - 22:00");

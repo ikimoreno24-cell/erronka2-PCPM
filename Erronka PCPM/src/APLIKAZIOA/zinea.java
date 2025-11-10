@@ -9,6 +9,7 @@ public class zinea {
         kargatuDatuak();
     }
     
+    //Filmak sartzeko bere izena eta kolorearekin eta bere gelan
     public void kargatuDatuak() {
         gelak umeenGela = new gelak("Umeen gela", koloreak.CYAN);
         umeenGela.gehituPelikula(new pelikula("Lilo y Stitch ", koloreak.CYAN));
@@ -41,11 +42,12 @@ public class zinea {
         gelenLista.add(komediaGela);
     }
     
-
+    //Gelak lortzeko
     public ArrayList<gelak> getGelak() {
         return gelenLista;
     }
     
+    //Gela bat lortzeko
     public gelak getGela(int index) {
         if (index >= 0 && index < gelenLista.size()) {
             return gelenLista.get(index);
@@ -53,9 +55,8 @@ public class zinea {
         return null;
     }
     
+    //Gela kopurua lortzeko
     public int getGelaKopurua() {
         return gelenLista.size();
     }
- 
-    
 }
