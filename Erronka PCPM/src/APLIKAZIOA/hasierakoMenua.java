@@ -16,6 +16,7 @@ public class hasierakoMenua {
         hasierakoMenua.add("Informazio orokorra");
         hasierakoMenua.add("Kokapena");
         hasierakoMenua.add("Ordutegia");
+        hasierakoMenua.add("Aukeratu data (asteburuak)");
         hasierakoMenua.add("Itxi");
     }
     
