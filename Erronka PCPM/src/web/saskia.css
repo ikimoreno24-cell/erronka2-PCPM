@@ -1,116 +1,116 @@
-
-
-main {
-  max-width: 1000px;
-  margin: 3rem auto;
-  padding: 2rem;
-  background: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+/* Ezinbestekoa animazioa ikusteko */
+body {
+    background-color: transparent !important;
 }
 
+main {
+    max-width: 1000px;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    
+    /* HEMEN DA GAKOA: Zuria, baina %90eko opakutasunarekin */
+    background: rgba(255, 255, 255, 0.9);
+}
+
+/* Zure jatorrizko estilo guztiak, ukitu gabe */
 main h1 {
-  text-align: center;
-  font-size: 2rem;
-  margin-bottom: 2rem;
-  color: #222;
-  background-color: #ffcc00;
-
-  border-radius: 10px;
-
-
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 2rem;
+    color: #222;
+    background-color: #ffcc00;
+    border-radius: 10px;
 }
 
 h2 {
-  margin-top: 2rem;
-  color: #333;
+    margin-top: 2rem;
+    color: #333;
 }
 
-
 form#sarrerak {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
 }
 
 form#sarrerak label {
-  font-weight: 500;
+    font-weight: 500;
 }
 
 form#sarrerak select,
 form#sarrerak input[type="number"] {
-  padding: 0.6rem;
-  border-radius: 0.5rem;
-  border: 1px solid #ccc;
-  font-size: 1rem;
-  max-width: 250px;
+    padding: 0.6rem;
+    border-radius: 0.5rem;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+    max-width: 250px;
 }
 
-
- main button {
-  background-color: #ffcc00;
-  border: none;
-  border-radius: 0.5rem;
-  padding: 0.7rem 1.2rem;
-  font-weight: 600;
-  cursor: pointer;
-  transition: background 0.3s, transform 0.2s;
+main button {
+    background-color: #ffcc00;
+    border: none;
+    border-radius: 0.5rem;
+    padding: 0.7rem 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
 }
 
- main button:hover {
-  background-color: #ffb700;
-  transform: translateY(-2px);
+main button:hover {
+    background-color: #ffb700;
+    transform: translateY(-2px);
 }
-
 
 #saskia {
-  margin-top: 1rem;
-  background-color: #f8f8f8;
-  border-radius: 0.5rem;
-  padding: 1rem;
-  min-height: 50px;
+    margin-top: 1rem;
+    background-color: #f8f8f8;
+    border-radius: 0.5rem;
+    padding: 1rem;
+    min-height: 50px;
 }
 
 #totala {
-  margin-top: 1rem;
-  text-align: right;
-  font-weight: bold;
-  font-size: 1.2rem;
-  color: #333;
+    margin-top: 1rem;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: #333;
 }
+
 form#sarrerak h3 {
-  font-size: 1.3rem;
-  margin-top: 1rem;
-  margin-bottom: 0.5rem;
-  color: #333;
-  font-weight: 600;
+    font-size: 1.3rem;
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    color: #333;
+    font-weight: 600;
 }
+
 .notifikazioa {
     position: fixed;
-    top: 50%;              
-    left: 50%;              
-    transform: translate(-50%, -50%); 
-    
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     background-color: #4CAF50;
     color: white;
     padding: 15px 25px;
     border-radius: 10px;
     font-size: 1.1rem;
     font-weight: 600;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
     opacity: 0;
-    pointer-events: none;    
+    pointer-events: none;
     transition: opacity 0.5s ease, transform 0.3s ease;
     z-index: 9999;
 }
 
-
 .notifikazioa.ikusi {
     opacity: 1;
     pointer-events: auto;
-    transform: translate(-50%, -50%) scale(1.05); 
+    transform: translate(-50%, -50%) scale(1.05);
 }
+
 .notifikazioa-ken {
-  background-color: #d93025;
+    background-color: #d93025;
 }
