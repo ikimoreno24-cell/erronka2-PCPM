@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.HashMap;
 
 public class app {  
+    static String agurra() {
+    return "Kaixo, ongi etorri Zinema Usurbilera, ni Iker naiz.";
+    }
     private static HashMap<String, ArrayList<Integer>> egutegia = new HashMap<>();
     
     static {
@@ -32,11 +35,6 @@ public class app {
         ostirala.add(3); 
         ostirala.add(4); 
         egutegia.put("Ostirala", ostirala);
-    }
-    
-
-    public static String agurra() {
-        return "Kaixo";
     }
     
     public static void main(String[] args) {
