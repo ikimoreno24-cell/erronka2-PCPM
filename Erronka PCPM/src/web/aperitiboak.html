@@ -14,12 +14,13 @@
     <link rel="stylesheet" href="aperitiboak.css">
 
     <style>
+        /* CANVASEKO ESTILOA */
         #confettiCanvas {
             position: fixed;
             top: 0;
             left: 0;
             z-index: 9999;
-            pointer-events: none;
+            pointer-events: none; /* Klikak azpiko elementuetara pasatzea ahalbidetzen du */
         }
     </style>
 
@@ -112,7 +113,7 @@
     </div>
 
     <script>
-        // --- CÓDIGO DE TU WEB (MANTENIDO) ---
+        // --- ZURE WEBGUNEAREN KODEA (MANTENDUTA) ---
         function informazioaIkusi(id) {
             const laukia = document.getElementById('informazioa-' + id);
             laukia.style.display = 'block';
@@ -134,7 +135,7 @@
         }
 
 
-        // --- CÓDIGO DEL CANVAS DE PALOMITAS (MODIFICADO) ---
+        // --- PALOMITEN CANVAS KODEA (BERRIA) ---
         
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
@@ -146,106 +147,108 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        let confettis = []; 
+        let palomitak = []; // Palomita aktibo guztiak gordetzen dituen array-a
 
-        class Confetto {
-            constructor(startX, startY) {
-                this.x = startX;
-                this.y = startY;
+        class Palomita { // Klasea Palomita (lehen Confetto)
+            constructor(hasieraX, hasieraY) {
+                this.x = hasieraX;
+                this.y = hasieraY;
                 
-                this.size = Math.random() * 8 + 6; // Ligeramente más grandes para que se vean bien
-                this.color = this.getRandomColor();
+                this.tamaina = Math.random() * 8 + 6; 
+                this.kolorea = this.getRandomColor();
                 
-                const angle = Math.random() * Math.PI * 2; 
-                const initialSpeed = Math.random() * 15 + 10; 
+                const angelua = Math.random() * Math.PI * 2; 
+                const hasieraAbiadura = Math.random() * 15 + 10; 
 
-                this.speedX = Math.cos(angle) * initialSpeed;
-                this.speedY = Math.sin(angle) * initialSpeed;
+                this.abiaduraX = Math.cos(angelua) * hasieraAbiadura;
+                this.abiaduraY = Math.sin(angelua) * hasieraAbiadura;
                 
-                this.gravity = 0.08; // Un poco más de gravedad para simular la palomita cayendo
-                this.deceleration = 0.98; // Un poco más de desaceleración
-                this.rotation = Math.random() * 360;
-                this.rotationSpeed = Math.random() * 0.3 - 0.15; // Más rotación para simular la forma irregular
+                this.grabitatea = 0.08; 
+                this.desazelerazioa = 0.98; 
+                this.errotazioa = Math.random() * 360;
+                this.errotazioAbiadura = Math.random() * 0.3 - 0.15; 
 
-                this.opacity = 1;
-                this.fadeSpeed = 0.005; // Ajustado para que duren un poco más en pantalla
+                this.opakutasuna = 1;
+                this.lausotzeAbiadura = 0.005; 
             }
 
-            // Cambiamos los colores para que sean tonos de palomita
             getRandomColor() {
-                const colors = ['#FFFDD0', '#F0E68C', '#FADA5E', '#FFD700', '#FFA500']; // Tonos de crema, amarillo, dorado, naranja
-                return colors[Math.floor(Math.random() * colors.length)];
+                const koloreak = ['#FFFDD0', '#F0E68C', '#FADA5E', '#FFD700', '#FFA500']; 
+                return koloreak[Math.floor(Math.random() * koloreak.length)];
             }
 
             update() {
-                this.speedY += this.gravity;
-                this.speedX *= this.deceleration;
-                this.speedY *= this.deceleration;
+                this.abiaduraY += this.grabitatea;
+                this.abiaduraX *= this.desazelerazioa;
+                this.abiaduraY *= this.desazelerazioa;
 
-                this.y += this.speedY;
-                this.x += this.speedX;
-                this.rotation += this.rotationSpeed;
+                this.y += this.abiaduraY;
+                this.x += this.abiaduraX;
+                this.errotazioa += this.errotazioAbiadura;
                 
-                this.opacity -= this.fadeSpeed;
+                this.opakutasuna -= this.lausotzeAbiadura;
             }
 
             draw() {
                 ctx.save();
                 ctx.translate(this.x, this.y);
-                ctx.rotate(this.rotation);
+                ctx.rotate(this.errotazioa);
                 
-                ctx.fillStyle = this.color;
-                ctx.globalAlpha = this.opacity;
+                ctx.fillStyle = this.kolorea;
+                ctx.globalAlpha = this.opakutasuna;
                 
-                // --- DIBUJAMOS LA FORMA DE PALOMITA ---
-                // Para simplificar, haremos una forma "blobby" o irregular
+                // --- PALOMITAREN FORMA MARRAZTU ---
                 ctx.beginPath();
-                ctx.arc(0, 0, this.size / 1.5, 0, Math.PI * 2); // Círculo central
-                ctx.arc(this.size / 2, 0, this.size / 2.5, 0, Math.PI * 2); // Parte superior derecha
-                ctx.arc(-this.size / 2, 0, this.size / 2.5, 0, Math.PI * 2); // Parte superior izquierda
-                ctx.arc(0, this.size / 2, this.size / 2.5, 0, Math.PI * 2); // Parte inferior
+                ctx.arc(0, 0, this.tamaina / 1.5, 0, Math.PI * 2); 
+                ctx.arc(this.tamaina / 2, 0, this.tamaina / 2.5, 0, Math.PI * 2); 
+                ctx.arc(-this.tamaina / 2, 0, this.tamaina / 2.5, 0, Math.PI * 2); 
+                ctx.arc(0, this.tamaina / 2, this.tamaina / 2.5, 0, Math.PI * 2); 
                 ctx.closePath();
-                ctx.fill(); // Rellena la forma
+                ctx.fill(); 
                 
                 ctx.restore();
                 ctx.globalAlpha = 1; 
             }
         }
 
-        const confettiCount = 500; 
+        const palomitaKopurua = 500; 
         
-        function createExplosion(clickX, clickY) {
-            const startX = clickX || canvas.width / 2;
-            const startY = clickY || canvas.height / 2;
+        function eztandaSortu(klikX, klikY) {
+            const hasieraX = klikX || canvas.width / 2;
+            const hasieraY = klikY || canvas.height / 2;
 
-            for (let i = 0; i < confettiCount; i++) {
-                const offsetX = (Math.random() - 0.5) * 50; 
-                const offsetY = (Math.random() - 0.5) * 50; 
+            for (let i = 0; i < palomitaKopurua; i++) {
+                const desplazamenduX = (Math.random() - 0.5) * 50; 
+                const desplazamenduY = (Math.random() - 0.5) * 50; 
                 
-                confettis.push(new Confetto(startX + offsetX, startY + offsetY));
+                palomitak.push(new Palomita(hasieraX + desplazamenduX, hasieraY + desplazamenduY));
             }
         }
 
-        function animate() {
+        function animatu() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
             
-            confettis = confettis.filter(c => c.opacity > 0); 
+            // Opakutasuna 0 baino handiagoa duten palomitak soilik mantentzen ditu
+            palomitak = palomitak.filter(p => p.opakutasuna > 0); 
 
-            confettis.forEach(confetto => {
-                confetto.update();
-                confetto.draw();
+            palomitak.forEach(palomita => {
+                palomita.update();
+                palomita.draw();
             });
             
-            requestAnimationFrame(animate); 
+            requestAnimationFrame(animatu); 
         }
 
+        // --- KLIK DETEKTATZAILEA ---
         window.addEventListener('click', (event) => {
-            if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG' && event.target.tagName !== 'AREA') { // Agregado AREA para tu mapa de imagen
-                createExplosion(event.clientX, event.clientY);
+            // Ez dugu eztanda sortzen A, BUTTON, IMG edo AREA elementuetan klik egitean
+            if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG' && event.target.tagName !== 'AREA') { 
+                eztandaSortu(event.clientX, event.clientY);
             }
         });
 
-        animate();
+        // Animazio begizta hasi
+        animatu();
     </script>
 </body>
 
