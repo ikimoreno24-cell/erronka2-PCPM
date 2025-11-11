@@ -13,10 +13,22 @@
     <link rel="stylesheet" href="menuhanburguesa.css">
     <link rel="stylesheet" href="aperitiboak.css">
 
+    <style>
+        /* El canvas debe ser de posición fija y cubrir toda la pantalla, por encima de todo */
+        #confettiCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 9999; /* Asegura que esté por encima del resto del contenido */
+            pointer-events: none; /* Crucial: permite que los clics pasen a los elementos debajo (botones, enlaces) */
+        }
+    </style>
 
 </head>
 
 <body>
+
+    <canvas id="confettiCanvas"></canvas>
 
 
     <header class="header">
@@ -49,7 +61,7 @@
         <a href="saskia.html">SASKIA</a>
     </div>
 
-   <main>
+    <main>
         <div class="janaria">
             <h1>JANARIA</h1>
             <p>Klikatu argazkian nahi duzun produktua aukeratzeko</p>
@@ -57,15 +69,15 @@
             <img src="img/snack.png" usemap="#image-map" alt="Aperitiboen aukerak: Gominolak, Krispetak eta Edariak">
 
         <map name="image-map">
-    <area target="_blank" alt="Gominolak" title="Gominolak" href="gominolak.html" 
-          coords="184,425,63,279" shape="rect">
+            <area target="_blank" alt="Gominolak" title="Gominolak" href="gominolak.html" 
+                    coords="184,425,63,279" shape="rect">
 
-    <area target="_blank" alt="Palomitak" title="Palomitak" href="palomitak.html" 
-          coords="170,370,290,100" shape="rect">
+            <area target="_blank" alt="Palomitak" title="Palomitak" href="palomitak.html" 
+                    coords="170,370,290,100" shape="rect">
 
-    <area target="_blank" alt="Edariak" title="Edariak" href="edariak.html" 
-          coords="300,70,457,434" shape="rect">
-</map>
+            <area target="_blank" alt="Edariak" title="Edariak" href="edariak.html" 
+                    coords="300,70,457,434" shape="rect">
+        </map>
         </div>
     </main>
 
@@ -101,6 +113,7 @@
     </div>
 
     <script>
+        // --- CÓDIGO DE TU WEB (MANTENIDO) ---
         function informazioaIkusi(id) {
             const laukia = document.getElementById('informazioa-' + id);
             laukia.style.display = 'block';
@@ -120,6 +133,116 @@
         menuaItxi.onclick = function () {
             menu.classList.remove('ikusi');
         }
+
+
+        // --- CÓDIGO DEL CANVAS DE CONFETI (NUEVO) ---
+        
+        const canvas = document.getElementById('confettiCanvas');
+        const ctx = canvas.getContext('2d');
+        
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        window.addEventListener('resize', resizeCanvas);
+        resizeCanvas();
+
+        let confettis = []; 
+
+        class Confetto {
+            constructor(startX, startY) {
+                this.x = startX;
+                this.y = startY;
+                
+                this.size = Math.random() * 6 + 4; 
+                this.color = this.getRandomColor();
+                
+                const angle = Math.random() * Math.PI * 2; 
+                const initialSpeed = Math.random() * 15 + 10; 
+
+                this.speedX = Math.cos(angle) * initialSpeed;
+                this.speedY = Math.sin(angle) * initialSpeed;
+                
+                this.gravity = 0.05; 
+                this.deceleration = 0.99; 
+                this.rotation = Math.random() * 360;
+                this.rotationSpeed = Math.random() * 0.2 - 0.1;
+
+                this.opacity = 1;
+                this.fadeSpeed = 0.003; 
+            }
+
+            getRandomColor() {
+                const colors = ['#FF00A2', '#00FFFF', '#FFCC00', '#FFFFFF', '#C0C0C0', '#33CC33', '#FF6600', '#8A2BE2', '#DC143C'];
+                return colors[Math.floor(Math.random() * colors.length)];
+            }
+
+            update() {
+                this.speedY += this.gravity;
+                this.speedX *= this.deceleration;
+                this.speedY *= this.deceleration;
+
+                this.y += this.speedY;
+                this.x += this.speedX;
+                this.rotation += this.rotationSpeed;
+                
+                this.opacity -= this.fadeSpeed;
+            }
+
+            draw() {
+                ctx.save();
+                ctx.translate(this.x, this.y);
+                ctx.rotate(this.rotation);
+                
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.opacity;
+                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                
+                ctx.restore();
+                ctx.globalAlpha = 1; 
+            }
+        }
+
+        const confettiCount = 500; 
+        
+        function createExplosion(clickX, clickY) {
+            const startX = clickX || canvas.width / 2;
+            const startY = clickY || canvas.height / 2;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const offsetX = (Math.random() - 0.5) * 50; 
+                const offsetY = (Math.random() - 0.5) * 50; 
+                
+                confettis.push(new Confetto(startX + offsetX, startY + offsetY));
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height); 
+            
+            confettis = confettis.filter(c => c.opacity > 0); 
+
+            confettis.forEach(confetto => {
+                confetto.update();
+                confetto.draw();
+            });
+            
+            requestAnimationFrame(animate); 
+        }
+
+        // --- DETECTAR CLIC EN LA PANTALLA ---
+        window.addEventListener('click', (event) => {
+            // Se comprueba si el clic fue en un elemento interactivo (enlaces, botones)
+            // Para evitar lanzar el confeti al hacer clic en un enlace o botón de tu web,
+            // y que solo se lance al hacer clic en el fondo o zonas de contenido.
+            // Si quieres que el confeti se lance SIEMPRE, puedes eliminar el if.
+            if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG') {
+                createExplosion(event.clientX, event.clientY);
+            }
+        });
+
+        // Iniciamos el bucle de animación
+        animate();
     </script>
 </body>
 
