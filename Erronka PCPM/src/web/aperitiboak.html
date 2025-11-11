@@ -14,13 +14,12 @@
     <link rel="stylesheet" href="aperitiboak.css">
 
     <style>
-        /* El canvas debe ser de posición fija y cubrir toda la pantalla, por encima de todo */
         #confettiCanvas {
             position: fixed;
             top: 0;
             left: 0;
-            z-index: 9999; /* Asegura que esté por encima del resto del contenido */
-            pointer-events: none; /* Crucial: permite que los clics pasen a los elementos debajo (botones, enlaces) */
+            z-index: 9999;
+            pointer-events: none;
         }
     </style>
 
@@ -43,7 +42,7 @@
                 <a href="informazioa.html">INFORMAZIOA</a>
                 <a href="balorazioak.html">BALORAZIOAK</a>
                 <a href="saskia.html">SASKIA</a>
-                <a href="OrrialdeNagusia.html">PORTADA</a>
+                <a href="OrrialdeNagusia.html">ORRIALDE NAGUSIA</a>
                 <img src="img/ubicaciones.png" alt="maps" onclick="informazioaIkusi('ubikazioa')">
             </nav>
 
@@ -135,7 +134,7 @@
         }
 
 
-        // --- CÓDIGO DEL CANVAS DE CONFETI (NUEVO) ---
+        // --- CÓDIGO DEL CANVAS DE PALOMITAS (MODIFICADO) ---
         
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
@@ -154,7 +153,7 @@
                 this.x = startX;
                 this.y = startY;
                 
-                this.size = Math.random() * 6 + 4; 
+                this.size = Math.random() * 8 + 6; // Ligeramente más grandes para que se vean bien
                 this.color = this.getRandomColor();
                 
                 const angle = Math.random() * Math.PI * 2; 
@@ -163,17 +162,18 @@
                 this.speedX = Math.cos(angle) * initialSpeed;
                 this.speedY = Math.sin(angle) * initialSpeed;
                 
-                this.gravity = 0.05; 
-                this.deceleration = 0.99; 
+                this.gravity = 0.08; // Un poco más de gravedad para simular la palomita cayendo
+                this.deceleration = 0.98; // Un poco más de desaceleración
                 this.rotation = Math.random() * 360;
-                this.rotationSpeed = Math.random() * 0.2 - 0.1;
+                this.rotationSpeed = Math.random() * 0.3 - 0.15; // Más rotación para simular la forma irregular
 
                 this.opacity = 1;
-                this.fadeSpeed = 0.003; 
+                this.fadeSpeed = 0.005; // Ajustado para que duren un poco más en pantalla
             }
 
+            // Cambiamos los colores para que sean tonos de palomita
             getRandomColor() {
-                const colors = ['#FF00A2', '#00FFFF', '#FFCC00', '#FFFFFF', '#C0C0C0', '#33CC33', '#FF6600', '#8A2BE2', '#DC143C'];
+                const colors = ['#FFFDD0', '#F0E68C', '#FADA5E', '#FFD700', '#FFA500']; // Tonos de crema, amarillo, dorado, naranja
                 return colors[Math.floor(Math.random() * colors.length)];
             }
 
@@ -196,7 +196,16 @@
                 
                 ctx.fillStyle = this.color;
                 ctx.globalAlpha = this.opacity;
-                ctx.fillRect(-this.size / 2, -this.size / 2, this.size, this.size);
+                
+                // --- DIBUJAMOS LA FORMA DE PALOMITA ---
+                // Para simplificar, haremos una forma "blobby" o irregular
+                ctx.beginPath();
+                ctx.arc(0, 0, this.size / 1.5, 0, Math.PI * 2); // Círculo central
+                ctx.arc(this.size / 2, 0, this.size / 2.5, 0, Math.PI * 2); // Parte superior derecha
+                ctx.arc(-this.size / 2, 0, this.size / 2.5, 0, Math.PI * 2); // Parte superior izquierda
+                ctx.arc(0, this.size / 2, this.size / 2.5, 0, Math.PI * 2); // Parte inferior
+                ctx.closePath();
+                ctx.fill(); // Rellena la forma
                 
                 ctx.restore();
                 ctx.globalAlpha = 1; 
@@ -230,18 +239,12 @@
             requestAnimationFrame(animate); 
         }
 
-        // --- DETECTAR CLIC EN LA PANTALLA ---
         window.addEventListener('click', (event) => {
-            // Se comprueba si el clic fue en un elemento interactivo (enlaces, botones)
-            // Para evitar lanzar el confeti al hacer clic en un enlace o botón de tu web,
-            // y que solo se lance al hacer clic en el fondo o zonas de contenido.
-            // Si quieres que el confeti se lance SIEMPRE, puedes eliminar el if.
-            if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG') {
+            if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG' && event.target.tagName !== 'AREA') { // Agregado AREA para tu mapa de imagen
                 createExplosion(event.clientX, event.clientY);
             }
         });
 
-        // Iniciamos el bucle de animación
         animate();
     </script>
 </body>
