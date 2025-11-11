@@ -1,5 +1,5 @@
 package APLIKAZIOA;
-import java.util.Collections;
+
 import java.util.ArrayList;
 
 /**
@@ -12,6 +12,9 @@ public class aukeratuAsteburua {
     private ArrayList<String> asteburuZenbakiak = new ArrayList<>();
     private zinea zine;
     private ArrayList<pelikula> azkenPelikulak; 
+    private String asteburua;
+    private String asteburuZenbakia; 
+    private String hilabetea;
 
     /**
      * Eraikitzailea
@@ -98,6 +101,7 @@ public class aukeratuAsteburua {
      */
     public String getHilabetea(int index) {
         if (index >= 0 && index < hilabeteak.size()) { 
+            this.hilabetea = hilabeteak.get(index); // GUARDAR
             return hilabeteak.get(index);
         }
         return null;
@@ -110,6 +114,7 @@ public class aukeratuAsteburua {
      */
     public String getAsteburua(int index) {
         if (index >= 0 && index < asteburuak.size()) {
+            this.asteburua = asteburuak.get(index); // GUARDAR
             return asteburuak.get(index);
         }
         return null;
@@ -122,6 +127,7 @@ public class aukeratuAsteburua {
      */
     public String getAsteburuZenbakia(int index) {
         if (index >= 0 && index < asteburuZenbakiak.size()) {
+            this.asteburuZenbakia = asteburuZenbakiak.get(index); // GUARDAR
             return asteburuZenbakiak.get(index);
         }
         return null;
@@ -131,23 +137,26 @@ public class aukeratuAsteburua {
      * 4 film ausaz erakusten dugu
      */
     public void erakutsiEgunekoFilmak() {
-        System.out.println("\nAstebururako pelikula aukerak (4 film ausaz):");
+        System.out.println("\nAsteburuko pelikula aukerak (4 film ausaz):");
 
-        ArrayList<pelikula> filmaGuztiak = new ArrayList<>();
-
-        // Film guztiak biltzen dugu
-        for (gelak gela : zine.getGelak()) {
-            filmaGuztiak.addAll(gela.getPelikulak());
+      
+        if (asteburua == null || asteburuZenbakia == null || hilabetea == null) {
+            System.out.println("ERROR: Datuak ez daude prest. Aukeratu lehenik data.");
+            return;
         }
 
-        // Filmak nahasten dugu
-        Collections.shuffle(filmaGuztiak);
+       
+        pelikula[] proiekzioBerria = proiekzioa.lortuProiekzioa(asteburua, asteburuZenbakia, hilabetea, zine);
 
-        // 4 film aukeratzen dugu
         this.azkenPelikulak.clear();
-        for (int i = 0; i < 4; i++) {
-            pelikula p = filmaGuztiak.get(i % filmaGuztiak.size()); 
-            this.azkenPelikulak.add(p);
+        for (pelikula p : proiekzioBerria) {
+            if (p != null) {
+                this.azkenPelikulak.add(p);
+            }
+        }
+        
+        for (int i = 0; i < this.azkenPelikulak.size(); i++) {
+            pelikula p = this.azkenPelikulak.get(i);
             System.out.println((i + 1) + ". " + p.getKolorea() + p.getTitulua() + koloreak.RESET + 
                              " - Stock: " + p.getStock());
         }
@@ -191,5 +200,15 @@ public class aukeratuAsteburua {
      */
     public zinea getZine() {
         return zine;
+    }
+    
+    /**
+     * Datuak garbitzeko (testetarako)
+     */
+    public void garbituDatuak() {
+        this.asteburua = null;
+        this.asteburuZenbakia = null;
+        this.hilabetea = null;
+        this.azkenPelikulak.clear();
     }
 }
