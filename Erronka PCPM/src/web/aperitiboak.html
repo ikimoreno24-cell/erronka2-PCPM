@@ -113,7 +113,7 @@
     </div>
 
     <script>
-        // --- ZURE WEBGUNEAREN KODEA (MANTENDUTA) ---
+   
         function informazioaIkusi(id) {
             const laukia = document.getElementById('informazioa-' + id);
             laukia.style.display = 'block';
@@ -135,8 +135,8 @@
         }
 
 
-        // --- PALOMITEN CANVAS KODEA (BERRIA) ---
-        
+   
+        //Hau internetetik hartu dugun efektoa da, palomita eztanda bat sortzen du klik egiten denean
         const canvas = document.getElementById('confettiCanvas');
         const ctx = canvas.getContext('2d');
         
@@ -147,9 +147,9 @@
         window.addEventListener('resize', resizeCanvas);
         resizeCanvas();
 
-        let palomitak = []; // Palomita aktibo guztiak gordetzen dituen array-a
+        let palomitak = []; 
 
-        class Palomita { // Klasea Palomita (lehen Confetto)
+        class Palomita {
             constructor(hasieraX, hasieraY) {
                 this.x = hasieraX;
                 this.y = hasieraY;
@@ -197,7 +197,7 @@
                 ctx.fillStyle = this.kolorea;
                 ctx.globalAlpha = this.opakutasuna;
                 
-                // --- PALOMITAREN FORMA MARRAZTU ---
+              
                 ctx.beginPath();
                 ctx.arc(0, 0, this.tamaina / 1.5, 0, Math.PI * 2); 
                 ctx.arc(this.tamaina / 2, 0, this.tamaina / 2.5, 0, Math.PI * 2); 
@@ -228,7 +228,7 @@
         function animatu() {
             ctx.clearRect(0, 0, canvas.width, canvas.height); 
             
-            // Opakutasuna 0 baino handiagoa duten palomitak soilik mantentzen ditu
+          
             palomitak = palomitak.filter(p => p.opakutasuna > 0); 
 
             palomitak.forEach(palomita => {
@@ -239,15 +239,15 @@
             requestAnimationFrame(animatu); 
         }
 
-        // --- KLIK DETEKTATZAILEA ---
+     
         window.addEventListener('click', (event) => {
-            // Ez dugu eztanda sortzen A, BUTTON, IMG edo AREA elementuetan klik egitean
+      
             if (event.target.tagName !== 'A' && event.target.tagName !== 'BUTTON' && event.target.tagName !== 'IMG' && event.target.tagName !== 'AREA') { 
                 eztandaSortu(event.clientX, event.clientY);
             }
         });
 
-        // Animazio begizta hasi
+       
         animatu();
     </script>
 </body>
